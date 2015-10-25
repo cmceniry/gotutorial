@@ -15,7 +15,7 @@ func main() {
 	// Inside of the get, the http library opens the response Body. We
 	// want to make sure that we release the open Body when we're done
 	// no matter what happens with out execution (though in this simple
-  // example it's not as big of a deal)
+	// example it's not as big of a deal)
 	...
 
 	// Access the body and read it all in, and print it out
