@@ -3,9 +3,12 @@ helloworld
 
 A simple example to confirm that the tutorial environment is functioning.
 
-Tutorial Sections
------------------
-Works with gettingstarted
+Focus - Tutorial Section
+------------------------
+gettingstarted
+
+Prerequisite - Tutorial Section
+-------------------------------
 
 Setup
 -----

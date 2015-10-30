@@ -12,8 +12,11 @@ You'll be using the log functions:
 
   https://golang.org/pkg/log/
 
-Tutorial Sections
------------------
+Focus - Tutorial Section
+------------------------
+
+Prerequisite - Tutorial Section
+-------------------------------
 gettingstarted
 
 Setup

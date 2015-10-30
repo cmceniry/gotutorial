@@ -9,8 +9,11 @@ You'll be using the os/exec functions:
 
   https://golang.org/pkg/os/exec/
 
-Tutorial Sections
------------------
+Focus - Tutorial Section
+------------------------
+
+Prerequisite - Tutorial Section
+-------------------------------
 gettingstarted
 if
 panic

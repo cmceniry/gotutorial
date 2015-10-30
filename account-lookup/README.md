@@ -8,8 +8,11 @@ You'll be using the os/user functions:
 
   https://golang.org/pkg/os/user/
 
-Tutorial Sections
------------------
+Focus - Tutorial Section
+------------------------
+
+Prerequisite - Tutorial Section
+-------------------------------
 gettingstarted
 if
 panic

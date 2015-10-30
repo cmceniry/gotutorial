@@ -8,8 +8,11 @@ You'll be using the log/syslog functions:
 
   https://golang.org/pkg/log/syslog/
 
-Tutorial Sections
------------------
+Focus - Tutorial Section
+------------------------
+
+Prerequisite - Tutorial Section
+-------------------------------
 gettingstarted
 if
 err

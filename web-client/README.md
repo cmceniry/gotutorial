@@ -19,16 +19,18 @@ With how net/http presents the response body, you'll also be using:
 
   https://golang.org/pkg/io/ioutil/
 
-Tutorial Sections
------------------
+Focus - Tutorial Section
+------------------------
+struct
+defer
+
+Prerequisite - Tutorial Section
+-------------------------------
 gettingstarted
 var
 if
 err
 panic
-struct
-defer
-
 
 Setup
 -----

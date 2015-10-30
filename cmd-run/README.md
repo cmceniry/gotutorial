@@ -11,15 +11,18 @@ You'll be using the os/exec functions:
 
   https://golang.org/pkg/os/exec/
 
-Tutorial Sections
------------------
+Focus - Tutorial Section
+------------------------
+struct
+array
+slice
+
+Prerequisite - Tutorial Section
+-------------------------------
 gettingstarted
 if
 panic
 err
-struct
-array
-slice
 
 Setup
 -----
