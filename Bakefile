@@ -1,12 +1,6 @@
-# -*- mode: ruby -*-
-# vi: set ft=ruby :
+# Used to generate AWS AMI for tutorial
+sudo yum update -y
 
-Vagrant.configure(2) do |config|
-
-  config.vm.box = "centos/7"
-  config.vm.box_check_update = false
-
-  config.vm.provision "shell", inline: <<-SHELL
 echo "Disabling SELINUX"
 sudo tee /etc/selinux/config <<-'EOF'
 SELINUX=disabled
@@ -18,17 +12,14 @@ sudo tee /etc/hostname <<-'EOF'
 gt
 EOF
 
-echo "Updating"
-yum update -y
-
 echo "Getting Git"
-yum install -y git
+sudo yum install -y git
 
 echo "Getting Go"
 curl -o /tmp/go.tgz https://storage.googleapis.com/golang/go1.7.4.linux-amd64.tar.gz
 
 echo "Extracting Go"
-tar -C /usr/local -zxf /tmp/go.tgz
+sudo tar -C /usr/local -zxf /tmp/go.tgz
 rm /tmp/go.tgz
 
 echo "Setting up Go environment"
@@ -40,24 +31,27 @@ if [[ ${PATH} != *"${GOROOT}/bin"* ]]; then
 fi
 EOF
 
-SHELL
-  config.vm.provision :reload
-  config.vm.provision "shell", inline: <<-SHELL
-echo "Setting tutorial enviornment"
-su - vagrant -c "git clone https://github.com/cmceniry/gotutorial.git tutorial"
-tee /home/vagrant/.bashrc <<-'EOF'
+sudo /usr/sbin/useradd vagrant
+echo golang | sudo passwd --stdin vagrant
+sudo tee -a /etc/ssh/sshd_config <<-'EOF'
+
+Match User vagrant
+	PasswordAuthentication yes
+EOF
+
+sudo tee /home/vagrant/.bashrc <<-'EOF'
 # .bashrc
 
 # Source global definitions
 if [ -f /etc/bashrc ]; then
-	. /etc/bashrc
+        . /etc/bashrc
 fi
 
 # User specific aliases and functions
 export GOPATH=/home/vagrant/tutorial/workspace
 EOF
-chmod 0600 /home/vagrant/.bashrc
-chown vagrant:vagrant /home/vagrant/.bashrc
+sudo chown vagrant:vagrant /home/vagrant/.bashrc
+sudo chmod 0600 /home/vagrant/.bashrc
 
 sudo tee /home/vagrant/.bash_profile <<-'EOF'
 # .bash_profile
@@ -81,5 +75,3 @@ sudo chown vagrant:vagrant /home/vagrant/.bash_profile
 sudo chmod 0600 /home/vagrant/.bash_profile
 
 echo "Done"
-SHELL
-end
